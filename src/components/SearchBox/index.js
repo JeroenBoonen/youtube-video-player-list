@@ -8,6 +8,7 @@ function SearchBox() {
   return (
     <div className={style.container}>
       <AutoComplete 
+        placeholder="Type keyword.."
         style={{width:300}}
         onSearch={onHandleSearch}
       />
