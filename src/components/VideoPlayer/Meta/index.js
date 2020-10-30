@@ -11,7 +11,7 @@ function VideoMeta() {
   `;
 
   return (
-    <Collapse>
+    <Collapse accordion>
       <Panel header="Title" key="1">
         <p>{text}</p>
       </Panel>

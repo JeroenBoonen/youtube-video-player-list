@@ -1,12 +1,12 @@
-import { REACT_APP_API_HOST, REACT_APP_API_KEY } from '../utils/config'
 import axios from 'axios'
+import { serviceCheckLocalHost } from './serviceCheckLocalHost'
+import { API_HOST, API_KEY } from '../utils/config'
 
 export const serviceGetVideoList = async (key, keyword) => {
-  console.log(REACT_APP_API_KEY, REACT_APP_API_HOST)
-  const { data } = await axios.get(`${REACT_APP_API_HOST}`, {
+  const { data } = await axios.get(`${serviceCheckLocalHost()}${API_HOST}`, {
     params:{
       part: keyword,
-      key: REACT_APP_API_KEY,
+      key: API_KEY,
     }
   });
   return data;
