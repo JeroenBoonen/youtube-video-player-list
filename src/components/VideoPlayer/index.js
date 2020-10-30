@@ -1,5 +1,5 @@
 import React from 'react'
-import ReactPlayer from 'react-player'
+import ReactPlayer from 'react-player/lazy'
 import Controller from './Controller'
 import Meta from './Meta'
 import style from './style.module.scss'
