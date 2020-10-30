@@ -15,7 +15,7 @@ function VideoMeta() {
       <Panel header="Title" key="1">
         <p>{text}</p>
       </Panel>
-      <Panel header="Descript" key="2">
+      <Panel header="Description" key="2">
         <p>{text}</p>
       </Panel>
       <Panel header="Channel Name" key="3">
