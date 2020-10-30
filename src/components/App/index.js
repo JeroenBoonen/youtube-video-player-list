@@ -9,11 +9,11 @@ import { serviceGetVideoList } from '../../services/serviceGetVideoList'
 const { Content } = Layout;
 
 function App() {
-  useEffect(() => {
-    serviceGetVideoList().then(res => {
-      console.log(res);
-    });
-  }, [])
+  // useEffect(() => {
+  //   serviceGetVideoList().then(res => {
+  //     console.log(res);
+  //   });
+  // }, [])
 
   return (
     <div className={style.container}>
