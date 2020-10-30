@@ -1,10 +1,14 @@
 import React from 'react'
+import { AutoComplete } from 'antd'
 
 function SearchBox() {
+  const onHandleSearch = value => {console.log(value)}
+
   return (
-    <div>
-      
-    </div>
+    <AutoComplete 
+      style={{width:300}}
+      onSearch={onHandleSearch}
+    />
   )
 }
 
