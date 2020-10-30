@@ -7,7 +7,6 @@ import style from './style.module.scss'
 const { Content } = Layout;
 
 function App() {
-  
   return (
     <div className={style.container}>
       <Layout>
