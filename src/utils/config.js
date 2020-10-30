@@ -1,2 +1,2 @@
-export const YOUTUBE_API_ENDPOINT = "https://developers.google.com/youtube";
-export const YOUTUBE_API_VERSION = "v3"
+export const API_HOST = `${process.env.YOUTUBE_API_ENDPOINT}/${process.env.YOUTUBE_API_V3}`
+export const API_KEY = process.env.YOUTUBE_API_KEY;
