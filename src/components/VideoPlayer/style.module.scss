@@ -8,3 +8,15 @@
   margin: auto;
   margin-bottom: 10px;
 }
+
+.noplayer {
+  margin: auto;
+  margin-bottom: 10px;
+  width: 640px;
+  height: 320px;
+  border: 1px solid lightgray;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}

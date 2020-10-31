@@ -1,19 +1,13 @@
 import React from 'react'
 import { Button } from 'antd'
-import { PlayCircleOutlined } from '@ant-design/icons'
+import { PlayCircleOutlined, PauseCircleOutlined } from '@ant-design/icons'
 import style from './style.module.scss'
-import { serviceGetVideoList } from '../../../services/serviceGetVideoList';
-import { useQuery } from 'react-query';
 
-function VideoController() {
-  
-  const handleVideoPlay = async() => {
-    const response = await serviceGetVideoList(null, "water")
-    console.log(response)
-  }
+function VideoController({ playing, onHandlePlay, disabled}) {
+    
   return (
     <div className={style.container}>
-      <Button type="ghost" icon={<PlayCircleOutlined />} onClick={handleVideoPlay}/>
+      <Button type="ghost" icon={!playing ? <PlayCircleOutlined />: <PauseCircleOutlined />} onClick={onHandlePlay} disabled={disabled}/>
     </div>
   )
 }

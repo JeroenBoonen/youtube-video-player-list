@@ -1,6 +1,6 @@
 import YoutubeAPI from './serviceYoutubeAPI'
 
-export const serviceGetVideoList = async (key, keyword) => {
+export const serviceGetVideoList = async (keyword) => {
   const response = await YoutubeAPI.get('/search', {
     params: {
       q: keyword

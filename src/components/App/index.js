@@ -1,20 +1,22 @@
 import { Layout } from 'antd'
-import SearchBox from '../SearchBox';
-import VideoPlayer from '../VideoPlayer';
+import VideoPlayer from '../VideoPlayer'
 import 'antd/dist/antd.css';
 import style from './style.module.scss'
+import { ReactQueryCacheProvider, QueryCache } from 'react-query'
 
-const { Content } = Layout;
+const { Content } = Layout
+const queryCache = new QueryCache()
 
 function App() {
   return (
     <div className={style.container}>
-      <Layout>
-        <Content>
-          <SearchBox />
-          <VideoPlayer />
-        </Content>
-      </Layout>    
+      <ReactQueryCacheProvider queryCache={queryCache}>
+        <Layout>
+          <Content>
+            <VideoPlayer />
+          </Content>
+        </Layout>    
+      </ReactQueryCacheProvider>
     </div>
   );
 }
