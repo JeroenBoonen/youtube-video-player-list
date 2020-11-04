@@ -1,5 +1,5 @@
 import React from 'react'
-import { useYoutubeAPI } from './lib/useYoutubeAPI';
+import { useYoutubeAPI } from './lib/useYoutubeAPI'
 import VideoView from './VideoView'
 import SearchBox from './SearchBox'
 import Controller from './Controller'
@@ -8,23 +8,30 @@ import style from './style.module.scss'
 
 
 function VideoPlayer() {  
-  const [isPlaying, setIsPlaying] = React.useState(false);
-  const [keyword, setKeyword] = React.useState('');
-  const { status, error, data, isFetching} = useYoutubeAPI(keyword)
-  console.log({keyword, status, error, data, isFetching})
-  
-  const handleVideoPlay = async() => {
-    setIsPlaying(!isPlaying);
-    // const response = await serviceGetVideoList("water")
-    // console.log(response)    
-  }
+  const [isPlaying, setIsPlaying] = React.useState(false)
+  const [isMuted, setIsMuted] = React.useState(false)
+  const [isLoop, setIsLoop] = React.useState(false)
+  const [keyword, setKeyword] = React.useState('')
+  const [ data, fetching, error ] = useYoutubeAPI(keyword)
+
+  const handleVideoPlay = async() => setIsPlaying(!isPlaying)
+  const handleMute = async() => setIsMuted(!isMuted)
+  const handleLoop = async() => setIsLoop(!isLoop)
 
   return (
     <div className={style.container}>
       <SearchBox updateKeyword={setKeyword}/>
-      <VideoView url={data}/>
-      <Controller playing={isPlaying} onHandlePlay={handleVideoPlay} enable={isFetching}/>
-      <Meta />
+      <VideoView data={data} playing={isPlaying} loading={fetching} error={error}/>
+      <Controller 
+        playing={isPlaying} 
+        onHandlePlay={handleVideoPlay} 
+        disabled={fetching} 
+        muted={isMuted}
+        onHandleMute={handleMute}
+        loop={isLoop}
+        onHandleLoop={handleLoop}
+      />
+      <Meta data={data}/>
     </div>
   )
 }

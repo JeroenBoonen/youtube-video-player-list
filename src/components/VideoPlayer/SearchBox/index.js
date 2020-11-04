@@ -4,6 +4,10 @@ import { useDebouncedCallback } from 'use-debounce'
 import { DEBOUNCE_TIME_LIMIT } from '../../../utils/config'
 import style from './style.module.scss'
 
+/**
+ * Get keyword from searchbox
+ * @param {Function} updateKeyword 
+ */
 function SearchBox({ updateKeyword }) {
   const debounced = useDebouncedCallback(value => {updateKeyword(value)}, DEBOUNCE_TIME_LIMIT);
 

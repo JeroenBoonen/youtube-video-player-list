@@ -3,23 +3,22 @@ import { Collapse } from 'antd'
 
 const { Panel } = Collapse
 
-function VideoMeta() {
-  const text = `
-    A dog is a type of domesticated animal.
-    Known for its loyalty and faithfulness,
-    it can be found as a welcome guest in many households across the world.
-  `;
-
+/**
+ * Present Video Data Information - title, channel, description
+ * @param {Object} data 
+ */
+function VideoMeta({ data }) {
+  
   return (
     <Collapse accordion>
       <Panel header="Title" key="1">
-        <p>{text}</p>
+        <p>{(data || {}).title}</p>
       </Panel>
       <Panel header="Description" key="2">
-        <p>{text}</p>
+        <p>{(data || {}).description}</p>
       </Panel>
       <Panel header="Channel Name" key="3">
-        <p>{text}</p>
+        <p>{(data || {}).channelTitle}</p>
       </Panel>
     </Collapse>
   )

@@ -1,15 +1,27 @@
 import YoutubeAPI from './serviceYoutubeAPI'
 
-export const serviceGetVideoList = async (keyword) => {
+/**
+ * 
+ * @param {String} keyword 
+ * @returns {Object}
+ */
+export const serviceGetVideoList = async keyword => {
+  if(keyword === undefined || keyword === "")return {}
+
+  // Get Video Data from YoutubeAPI
   const response = await YoutubeAPI.get('/search', {
     params: {
       q: keyword
     }
   })
+
+  // Check if item has videoId or channelId
+  const item = response.data.items.filter(item => item.id.hasOwnProperty('videoId'))[0]
+
   return {
-    id: response.data.items[0].id.videoId,
-    title: response.data.items[0].snippet.title,
-    description: response.data.items[0].snippet.description,
-    channelTitle: response.data.items[0].snippet.channelTitle
+    id: item.id.videoId,
+    title: item.snippet.title,
+    description: item.snippet.description,
+    channelTitle: item.snippet.channelTitle
   }
 }

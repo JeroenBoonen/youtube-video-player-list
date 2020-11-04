@@ -6,7 +6,7 @@ export default axios.create({
     baseURL: `${serviceCheckLocalHost()}${API_HOST}`,
     params: {
         part: 'snippet',
-        maxResults: 5,
+        maxResults: 10,
         key: API_KEY
     }    
 })
