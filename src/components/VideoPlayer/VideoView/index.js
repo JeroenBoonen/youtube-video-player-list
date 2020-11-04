@@ -13,7 +13,6 @@ import { YOUTUBE_URL } from '../../../utils/config'
  * @returns 
  */
 function VideoView({ data, playing, loading, error}) {
-  console.log({ data, playing, loading})
   if (!data || (data && !Object.keys(data).length))  
     return <div className={style.noplayer}>'No Video Data'</div>
     
